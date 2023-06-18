@@ -31,6 +31,11 @@ import deepspeed
 from deepspeed.moe.layer import MoE
 from deepspeed.accelerator import get_accelerator
 
+try:                
+    from einops import rearrange
+except ImportError: 
+    rearrange = None
+
 try:
     from flash_attn.flash_attn_interface import flash_attn_unpadded_func
 except ImportError:
